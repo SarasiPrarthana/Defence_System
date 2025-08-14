@@ -9,12 +9,16 @@ package defencesystem1;
  * @author DELL
  */
 public class Tank extends javax.swing.JFrame implements DefenceObserver{
+    private MainController mainController;
 
     /**
      * Creates new form Tank
      */
     public Tank() {
         initComponents();
+    }
+    public void setMainController(MainController mainController){
+        this.mainController = mainController;
     }
 
     /**
@@ -38,10 +42,10 @@ public class Tank extends javax.swing.JFrame implements DefenceObserver{
         tankMissile = new javax.swing.JButton();
         tankLaser = new javax.swing.JButton();
         jScrollPane1 = new javax.swing.JScrollPane();
-        jTextArea1 = new javax.swing.JTextArea();
+        tankTxtArea = new javax.swing.JTextArea();
         jSlider1 = new javax.swing.JSlider();
-        jTextField1 = new javax.swing.JTextField();
-        jButton4 = new javax.swing.JButton();
+        tankTxtField = new javax.swing.JTextField();
+        tankSendBtn = new javax.swing.JButton();
         jLabel1 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
@@ -77,9 +81,11 @@ public class Tank extends javax.swing.JFrame implements DefenceObserver{
         tankLaser.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
         tankLaser.setText("Laser Operation");
 
-        jTextArea1.setColumns(20);
-        jTextArea1.setRows(5);
-        jScrollPane1.setViewportView(jTextArea1);
+        tankTxtArea.setColumns(20);
+        tankTxtArea.setFont(new java.awt.Font("Segoe UI Black", 1, 24)); // NOI18N
+        tankTxtArea.setForeground(new java.awt.Color(255, 153, 0));
+        tankTxtArea.setRows(5);
+        jScrollPane1.setViewportView(tankTxtArea);
 
         jSlider1.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
         jSlider1.setForeground(new java.awt.Color(255, 153, 0));
@@ -88,11 +94,17 @@ public class Tank extends javax.swing.JFrame implements DefenceObserver{
         jSlider1.setOrientation(javax.swing.JSlider.VERTICAL);
         jSlider1.setPaintLabels(true);
         jSlider1.setPaintTicks(true);
+        jSlider1.setValue(0);
 
-        jButton4.setBackground(new java.awt.Color(0, 0, 0));
-        jButton4.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
-        jButton4.setForeground(new java.awt.Color(255, 255, 255));
-        jButton4.setText("Send");
+        tankSendBtn.setBackground(new java.awt.Color(0, 0, 0));
+        tankSendBtn.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
+        tankSendBtn.setForeground(new java.awt.Color(255, 255, 255));
+        tankSendBtn.setText("Send");
+        tankSendBtn.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                tankSendBtnActionPerformed(evt);
+            }
+        });
 
         jLabel1.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
         jLabel1.setText("Soldiers");
@@ -123,9 +135,9 @@ public class Tank extends javax.swing.JFrame implements DefenceObserver{
                                     .addComponent(positionCheck, javax.swing.GroupLayout.PREFERRED_SIZE, 101, javax.swing.GroupLayout.PREFERRED_SIZE)))
                             .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 495, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addGroup(layout.createSequentialGroup()
-                                .addComponent(jTextField1, javax.swing.GroupLayout.PREFERRED_SIZE, 404, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addComponent(tankTxtField, javax.swing.GroupLayout.PREFERRED_SIZE, 404, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addGap(18, 18, 18)
-                                .addComponent(jButton4, javax.swing.GroupLayout.PREFERRED_SIZE, 73, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                                .addComponent(tankSendBtn, javax.swing.GroupLayout.PREFERRED_SIZE, 73, javax.swing.GroupLayout.PREFERRED_SIZE)))
                         .addGap(18, 18, 18)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(jTextField2)
@@ -173,8 +185,8 @@ public class Tank extends javax.swing.JFrame implements DefenceObserver{
                         .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 139, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(18, 18, 18)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(jTextField1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jButton4)))
+                            .addComponent(tankTxtField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(tankSendBtn)))
                     .addGroup(layout.createSequentialGroup()
                         .addComponent(jTextField2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
@@ -189,6 +201,15 @@ public class Tank extends javax.swing.JFrame implements DefenceObserver{
         // TODO add your handling code here:
     }//GEN-LAST:event_jTextField2ActionPerformed
 
+    private void tankSendBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_tankSendBtnActionPerformed
+        String message = tankTxtField.getText().trim();
+        if(!message.isEmpty()){
+            tankTxtArea.append("Tank :"+message+"\n");
+            mainController.recieveMessageFromObserver("Tank",message);
+            tankTxtField.setText("");
+        }
+    }//GEN-LAST:event_tankSendBtnActionPerformed
+
     /**
      * @param args the command line arguments
      */
@@ -197,21 +218,21 @@ public class Tank extends javax.swing.JFrame implements DefenceObserver{
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JLabel Area;
     private javax.swing.JLabel Lbl1;
-    private javax.swing.JButton jButton4;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JSlider jSlider1;
     private javax.swing.JSpinner jSpinner1;
     private javax.swing.JSpinner jSpinner2;
-    private javax.swing.JTextArea jTextArea1;
-    private javax.swing.JTextField jTextField1;
     private javax.swing.JTextField jTextField2;
     private javax.swing.JCheckBox positionCheck;
     private javax.swing.JButton tankLaser;
     private javax.swing.JButton tankMissile;
     private javax.swing.JButton tankRotate;
+    private javax.swing.JButton tankSendBtn;
     private javax.swing.JButton tankShoot;
+    private javax.swing.JTextArea tankTxtArea;
+    private javax.swing.JTextField tankTxtField;
     // End of variables declaration//GEN-END:variables
 
     @Override
@@ -246,6 +267,11 @@ public class Tank extends javax.swing.JFrame implements DefenceObserver{
         if(Level>=80){
             tankRotate.setEnabled(true);
         }
+    }
+
+    @Override
+    public void updateMessage(String Sender, String Message) {
+            tankTxtArea.append(Sender+": "+Message+"\n");
     }
 }
         

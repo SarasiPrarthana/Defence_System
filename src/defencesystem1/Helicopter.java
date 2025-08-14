@@ -9,12 +9,16 @@ package defencesystem1;
  * @author DELL
  */
 public class Helicopter extends javax.swing.JFrame implements DefenceObserver{
+    private MainController mainController;
 
     /**
      * Creates new form Helicopter
      */
     public Helicopter() {
         initComponents();
+    }
+    public void setMainController(MainController mainController){
+        this.mainController = mainController;
     }
 
     /**
@@ -32,9 +36,9 @@ public class Helicopter extends javax.swing.JFrame implements DefenceObserver{
         heliMissile = new javax.swing.JButton();
         heliLaser = new javax.swing.JButton();
         jScrollPane1 = new javax.swing.JScrollPane();
-        jTextArea1 = new javax.swing.JTextArea();
-        jTextField1 = new javax.swing.JTextField();
-        jButton4 = new javax.swing.JButton();
+        heliTxtArea = new javax.swing.JTextArea();
+        heliTxtField = new javax.swing.JTextField();
+        heliSendBtn = new javax.swing.JButton();
         jLabel1 = new javax.swing.JLabel();
         jLabel2 = new javax.swing.JLabel();
         jSpinner1 = new javax.swing.JSpinner();
@@ -59,14 +63,27 @@ public class Helicopter extends javax.swing.JFrame implements DefenceObserver{
         heliLaser.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
         heliLaser.setText("Laser Operation");
 
-        jTextArea1.setColumns(20);
-        jTextArea1.setRows(5);
-        jScrollPane1.setViewportView(jTextArea1);
+        heliTxtArea.setColumns(20);
+        heliTxtArea.setFont(new java.awt.Font("Segoe UI Black", 1, 24)); // NOI18N
+        heliTxtArea.setForeground(new java.awt.Color(255, 153, 0));
+        heliTxtArea.setRows(5);
+        jScrollPane1.setViewportView(heliTxtArea);
 
-        jButton4.setBackground(new java.awt.Color(0, 0, 0));
-        jButton4.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
-        jButton4.setForeground(new java.awt.Color(255, 255, 255));
-        jButton4.setText("Send");
+        heliTxtField.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                heliTxtFieldActionPerformed(evt);
+            }
+        });
+
+        heliSendBtn.setBackground(new java.awt.Color(0, 0, 0));
+        heliSendBtn.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
+        heliSendBtn.setForeground(new java.awt.Color(255, 255, 255));
+        heliSendBtn.setText("Send");
+        heliSendBtn.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                heliSendBtnActionPerformed(evt);
+            }
+        });
 
         jLabel1.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
         jLabel1.setText("Soldiers");
@@ -87,6 +104,7 @@ public class Helicopter extends javax.swing.JFrame implements DefenceObserver{
         jSlider1.setOrientation(javax.swing.JSlider.VERTICAL);
         jSlider1.setPaintLabels(true);
         jSlider1.setPaintTicks(true);
+        jSlider1.setValue(0);
 
         positionCheck.setBackground(new java.awt.Color(0, 0, 0));
         positionCheck.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
@@ -129,9 +147,9 @@ public class Helicopter extends javax.swing.JFrame implements DefenceObserver{
                                     .addGap(11, 11, 11))
                                 .addComponent(jSpinner1, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE))
                             .addGroup(layout.createSequentialGroup()
-                                .addComponent(jTextField1, javax.swing.GroupLayout.PREFERRED_SIZE, 404, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addComponent(heliTxtField, javax.swing.GroupLayout.PREFERRED_SIZE, 404, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addGap(18, 18, 18)
-                                .addComponent(jButton4, javax.swing.GroupLayout.PREFERRED_SIZE, 73, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                .addComponent(heliSendBtn, javax.swing.GroupLayout.PREFERRED_SIZE, 73, javax.swing.GroupLayout.PREFERRED_SIZE))
                             .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 495, javax.swing.GroupLayout.PREFERRED_SIZE))
                         .addGap(0, 0, Short.MAX_VALUE)))
                 .addContainerGap())
@@ -163,8 +181,8 @@ public class Helicopter extends javax.swing.JFrame implements DefenceObserver{
                         .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 139, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(18, 18, 18)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(jTextField1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jButton4)))
+                            .addComponent(heliTxtField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(heliSendBtn)))
                     .addGroup(layout.createSequentialGroup()
                         .addComponent(jTextField2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
@@ -179,6 +197,19 @@ public class Helicopter extends javax.swing.JFrame implements DefenceObserver{
         // TODO add your handling code here:
     }//GEN-LAST:event_jTextField2ActionPerformed
 
+    private void heliTxtFieldActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_heliTxtFieldActionPerformed
+        
+    }//GEN-LAST:event_heliTxtFieldActionPerformed
+
+    private void heliSendBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_heliSendBtnActionPerformed
+        String message = heliTxtField.getText().trim();
+        if(!message.isEmpty()){
+            heliTxtArea.append("Helicopter :"+message+"\n");
+            mainController.recieveMessageFromObserver("Helicopter", message);
+            heliTxtField.setText("");
+        }
+    }//GEN-LAST:event_heliSendBtnActionPerformed
+
     /**
      * @param args the command line arguments
      */
@@ -189,16 +220,16 @@ public class Helicopter extends javax.swing.JFrame implements DefenceObserver{
     private javax.swing.JLabel Lbl1;
     private javax.swing.JButton heliLaser;
     private javax.swing.JButton heliMissile;
+    private javax.swing.JButton heliSendBtn;
     private javax.swing.JButton heliShoot;
-    private javax.swing.JButton jButton4;
+    private javax.swing.JTextArea heliTxtArea;
+    private javax.swing.JTextField heliTxtField;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JSlider jSlider1;
     private javax.swing.JSpinner jSpinner1;
     private javax.swing.JSpinner jSpinner2;
-    private javax.swing.JTextArea jTextArea1;
-    private javax.swing.JTextField jTextField1;
     private javax.swing.JTextField jTextField2;
     private javax.swing.JCheckBox positionCheck;
     // End of variables declaration//GEN-END:variables
@@ -231,5 +262,10 @@ public class Helicopter extends javax.swing.JFrame implements DefenceObserver{
         if(Level>=60){
             heliLaser.setEnabled(true);
         }
+    }
+
+    @Override
+    public void updateMessage(String Sender, String Message) {
+        heliTxtArea.append(Sender+": "+Message+"\n");
     }
 }
