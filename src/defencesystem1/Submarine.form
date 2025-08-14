@@ -32,20 +32,20 @@
                           <Group type="102" attributes="0">
                               <Group type="103" groupAlignment="0" attributes="0">
                                   <Group type="102" alignment="0" attributes="0">
-                                      <Component id="jButton1" min="-2" pref="160" max="-2" attributes="0"/>
+                                      <Component id="subShoot" min="-2" pref="160" max="-2" attributes="0"/>
                                       <EmptySpace max="-2" attributes="0"/>
-                                      <Component id="jButton2" min="-2" pref="160" max="-2" attributes="0"/>
+                                      <Component id="subMissile" min="-2" pref="160" max="-2" attributes="0"/>
                                   </Group>
                                   <Group type="102" alignment="0" attributes="0">
-                                      <Component id="jButton3" min="-2" pref="160" max="-2" attributes="0"/>
+                                      <Component id="subLaser" min="-2" pref="160" max="-2" attributes="0"/>
                                       <EmptySpace max="-2" attributes="0"/>
-                                      <Component id="jButton5" min="-2" pref="160" max="-2" attributes="0"/>
+                                      <Component id="subTrident" min="-2" pref="160" max="-2" attributes="0"/>
                                   </Group>
                               </Group>
                               <EmptySpace min="-2" pref="57" max="-2" attributes="0"/>
                               <Group type="103" groupAlignment="0" attributes="0">
                                   <Component id="jLabel2" min="-2" pref="80" max="-2" attributes="0"/>
-                                  <Component id="jCheckBox1" min="-2" pref="101" max="-2" attributes="0"/>
+                                  <Component id="positionCheck" min="-2" pref="101" max="-2" attributes="0"/>
                               </Group>
                           </Group>
                           <Component id="jScrollPane1" min="-2" pref="495" max="-2" attributes="0"/>
@@ -103,14 +103,14 @@
                       <Group type="103" groupAlignment="3" attributes="0">
                           <Component id="jSpinner2" alignment="3" min="-2" max="-2" attributes="0"/>
                           <Component id="jLabel2" alignment="3" min="-2" max="-2" attributes="0"/>
-                          <Component id="jButton1" alignment="3" min="-2" max="-2" attributes="0"/>
-                          <Component id="jButton2" alignment="3" min="-2" max="-2" attributes="0"/>
+                          <Component id="subShoot" alignment="3" min="-2" max="-2" attributes="0"/>
+                          <Component id="subMissile" alignment="3" min="-2" max="-2" attributes="0"/>
                       </Group>
                       <EmptySpace max="-2" attributes="0"/>
                       <Group type="103" groupAlignment="3" attributes="0">
-                          <Component id="jButton5" alignment="3" min="-2" max="-2" attributes="0"/>
-                          <Component id="jButton3" alignment="3" min="-2" max="-2" attributes="0"/>
-                          <Component id="jCheckBox1" alignment="3" min="-2" pref="26" max="-2" attributes="0"/>
+                          <Component id="subTrident" alignment="3" min="-2" max="-2" attributes="0"/>
+                          <Component id="subLaser" alignment="3" min="-2" max="-2" attributes="0"/>
+                          <Component id="positionCheck" alignment="3" min="-2" pref="26" max="-2" attributes="0"/>
                       </Group>
                       <EmptySpace type="separate" max="-2" attributes="0"/>
                       <Component id="jScrollPane1" min="-2" pref="139" max="-2" attributes="0"/>
@@ -147,7 +147,7 @@
         </Property>
       </Properties>
     </Component>
-    <Component class="javax.swing.JButton" name="jButton1">
+    <Component class="javax.swing.JButton" name="subShoot">
       <Properties>
         <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
           <Font name="Segoe UI" size="14" style="1"/>
@@ -155,7 +155,7 @@
         <Property name="text" type="java.lang.String" value="Shoot"/>
       </Properties>
     </Component>
-    <Component class="javax.swing.JButton" name="jButton2">
+    <Component class="javax.swing.JButton" name="subMissile">
       <Properties>
         <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
           <Font name="Segoe UI" size="14" style="1"/>
@@ -163,7 +163,7 @@
         <Property name="text" type="java.lang.String" value="Missile Operation"/>
       </Properties>
     </Component>
-    <Component class="javax.swing.JButton" name="jButton3">
+    <Component class="javax.swing.JButton" name="subLaser">
       <Properties>
         <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
           <Font name="Segoe UI" size="14" style="1"/>
@@ -225,7 +225,7 @@
         <Property name="text" type="java.lang.String" value="Soldiers"/>
       </Properties>
     </Component>
-    <Component class="javax.swing.JCheckBox" name="jCheckBox1">
+    <Component class="javax.swing.JCheckBox" name="positionCheck">
       <Properties>
         <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
           <Color blue="0" green="0" red="0" type="rgb"/>
@@ -256,7 +256,7 @@
         <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jTextField2ActionPerformed"/>
       </Events>
     </Component>
-    <Component class="javax.swing.JButton" name="jButton5">
+    <Component class="javax.swing.JButton" name="subTrident">
       <Properties>
         <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
           <Font name="Segoe UI" size="14" style="1"/>

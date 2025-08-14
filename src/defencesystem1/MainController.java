@@ -25,6 +25,11 @@ public class MainController extends javax.swing.JFrame {
             o.updateAreaStatus(isCleared);
         }
     }
+    private void notifyButtonLevels(int level){
+        for(DefenceObserver o : observers){
+            o.notifyObservers(level);
+        }
+    }
     
     public static void main(String args[]){
         MainController mc=new MainController();
@@ -53,7 +58,7 @@ public class MainController extends javax.swing.JFrame {
         Count1 = new javax.swing.JLabel();
         Count2 = new javax.swing.JLabel();
         Count3 = new javax.swing.JLabel();
-        Slider = new javax.swing.JSlider();
+        mainSlider = new javax.swing.JSlider();
         jScrollPane1 = new javax.swing.JScrollPane();
         txtArea1 = new javax.swing.JTextArea();
         jScrollPane2 = new javax.swing.JScrollPane();
@@ -89,12 +94,27 @@ public class MainController extends javax.swing.JFrame {
         Count3.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
         Count3.setText("Position");
 
-        Slider.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
-        Slider.setForeground(new java.awt.Color(255, 153, 0));
-        Slider.setMajorTickSpacing(20);
-        Slider.setMinorTickSpacing(10);
-        Slider.setPaintLabels(true);
-        Slider.setPaintTicks(true);
+        mainSlider.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
+        mainSlider.setForeground(new java.awt.Color(255, 153, 0));
+        mainSlider.setMajorTickSpacing(20);
+        mainSlider.setMinorTickSpacing(10);
+        mainSlider.setPaintLabels(true);
+        mainSlider.setPaintTicks(true);
+        mainSlider.setValue(0);
+        mainSlider.addAncestorListener(new javax.swing.event.AncestorListener() {
+            public void ancestorAdded(javax.swing.event.AncestorEvent evt) {
+                mainSliderAncestorAdded(evt);
+            }
+            public void ancestorMoved(javax.swing.event.AncestorEvent evt) {
+            }
+            public void ancestorRemoved(javax.swing.event.AncestorEvent evt) {
+            }
+        });
+        mainSlider.addChangeListener(new javax.swing.event.ChangeListener() {
+            public void stateChanged(javax.swing.event.ChangeEvent evt) {
+                mainSliderStateChanged(evt);
+            }
+        });
 
         txtArea1.setColumns(20);
         txtArea1.setRows(5);
@@ -155,7 +175,7 @@ public class MainController extends javax.swing.JFrame {
                     .addGroup(layout.createSequentialGroup()
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(Count3, javax.swing.GroupLayout.PREFERRED_SIZE, 98, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(Slider, javax.swing.GroupLayout.PREFERRED_SIZE, 229, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addComponent(mainSlider, javax.swing.GroupLayout.PREFERRED_SIZE, 229, javax.swing.GroupLayout.PREFERRED_SIZE))
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                         .addComponent(Btn2, javax.swing.GroupLayout.PREFERRED_SIZE, 223, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(15, 15, 15))
@@ -199,7 +219,7 @@ public class MainController extends javax.swing.JFrame {
                     .addGroup(layout.createSequentialGroup()
                         .addComponent(Count3)
                         .addGap(8, 8, 8)
-                        .addComponent(Slider, javax.swing.GroupLayout.PREFERRED_SIZE, 53, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addComponent(mainSlider, javax.swing.GroupLayout.PREFERRED_SIZE, 53, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(layout.createSequentialGroup()
                         .addGap(16, 16, 16)
                         .addComponent(Btn2)))
@@ -221,6 +241,15 @@ public class MainController extends javax.swing.JFrame {
         notifyObservers(areaClearCheckBox.isSelected());
     }//GEN-LAST:event_areaClearCheckBoxActionPerformed
 
+    private void mainSliderAncestorAdded(javax.swing.event.AncestorEvent evt) {//GEN-FIRST:event_mainSliderAncestorAdded
+        // TODO add your handling code here:
+    }//GEN-LAST:event_mainSliderAncestorAdded
+
+    private void mainSliderStateChanged(javax.swing.event.ChangeEvent evt) {//GEN-FIRST:event_mainSliderStateChanged
+        int value = mainSlider.getValue();
+        notifyButtonLevels(value);
+    }//GEN-LAST:event_mainSliderStateChanged
+
     /**
      * @param args the command line arguments
      */
@@ -236,13 +265,13 @@ public class MainController extends javax.swing.JFrame {
     private javax.swing.JLabel Count2;
     private javax.swing.JLabel Count3;
     private javax.swing.JLabel Lbl1;
-    private javax.swing.JSlider Slider;
     private javax.swing.JTextArea TxtArea1;
     private javax.swing.JTextArea TxtArea2;
     private javax.swing.JCheckBox areaClearCheckBox;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JScrollPane jScrollPane2;
     private javax.swing.JScrollPane jScrollPane3;
+    private javax.swing.JSlider mainSlider;
     private javax.swing.JTextArea txtArea1;
     // End of variables declaration//GEN-END:variables
 }

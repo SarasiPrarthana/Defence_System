@@ -28,21 +28,21 @@ public class Submarine extends javax.swing.JFrame implements DefenceObserver{
 
         Area = new javax.swing.JLabel();
         Lbl1 = new javax.swing.JLabel();
-        jButton1 = new javax.swing.JButton();
-        jButton2 = new javax.swing.JButton();
-        jButton3 = new javax.swing.JButton();
+        subShoot = new javax.swing.JButton();
+        subMissile = new javax.swing.JButton();
+        subLaser = new javax.swing.JButton();
         jScrollPane1 = new javax.swing.JScrollPane();
         jTextArea1 = new javax.swing.JTextArea();
         jSlider1 = new javax.swing.JSlider();
         jTextField1 = new javax.swing.JTextField();
         jButton4 = new javax.swing.JButton();
         jLabel1 = new javax.swing.JLabel();
-        jCheckBox1 = new javax.swing.JCheckBox();
+        positionCheck = new javax.swing.JCheckBox();
         jLabel2 = new javax.swing.JLabel();
         jSpinner1 = new javax.swing.JSpinner();
         jSpinner2 = new javax.swing.JSpinner();
         jTextField2 = new javax.swing.JTextField();
-        jButton5 = new javax.swing.JButton();
+        subTrident = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -51,14 +51,14 @@ public class Submarine extends javax.swing.JFrame implements DefenceObserver{
 
         Lbl1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/defencesystem1/1.png"))); // NOI18N
 
-        jButton1.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
-        jButton1.setText("Shoot");
+        subShoot.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
+        subShoot.setText("Shoot");
 
-        jButton2.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
-        jButton2.setText("Missile Operation");
+        subMissile.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
+        subMissile.setText("Missile Operation");
 
-        jButton3.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
-        jButton3.setText("Laser Operation");
+        subLaser.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
+        subLaser.setText("Laser Operation");
 
         jTextArea1.setColumns(20);
         jTextArea1.setRows(5);
@@ -80,10 +80,10 @@ public class Submarine extends javax.swing.JFrame implements DefenceObserver{
         jLabel1.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
         jLabel1.setText("Soldiers");
 
-        jCheckBox1.setBackground(new java.awt.Color(0, 0, 0));
-        jCheckBox1.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
-        jCheckBox1.setForeground(new java.awt.Color(255, 255, 255));
-        jCheckBox1.setText("Position");
+        positionCheck.setBackground(new java.awt.Color(0, 0, 0));
+        positionCheck.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
+        positionCheck.setForeground(new java.awt.Color(255, 255, 255));
+        positionCheck.setText("Position");
 
         jLabel2.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
         jLabel2.setText("Ammo");
@@ -94,8 +94,8 @@ public class Submarine extends javax.swing.JFrame implements DefenceObserver{
             }
         });
 
-        jButton5.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
-        jButton5.setText("Trident-2 Missile");
+        subTrident.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
+        subTrident.setText("Trident-2 Missile");
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -110,17 +110,17 @@ public class Submarine extends javax.swing.JFrame implements DefenceObserver{
                             .addGroup(layout.createSequentialGroup()
                                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                     .addGroup(layout.createSequentialGroup()
-                                        .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 160, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                        .addComponent(subShoot, javax.swing.GroupLayout.PREFERRED_SIZE, 160, javax.swing.GroupLayout.PREFERRED_SIZE)
                                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                        .addComponent(jButton2, javax.swing.GroupLayout.PREFERRED_SIZE, 160, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                        .addComponent(subMissile, javax.swing.GroupLayout.PREFERRED_SIZE, 160, javax.swing.GroupLayout.PREFERRED_SIZE))
                                     .addGroup(layout.createSequentialGroup()
-                                        .addComponent(jButton3, javax.swing.GroupLayout.PREFERRED_SIZE, 160, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                        .addComponent(subLaser, javax.swing.GroupLayout.PREFERRED_SIZE, 160, javax.swing.GroupLayout.PREFERRED_SIZE)
                                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                        .addComponent(jButton5, javax.swing.GroupLayout.PREFERRED_SIZE, 160, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                                        .addComponent(subTrident, javax.swing.GroupLayout.PREFERRED_SIZE, 160, javax.swing.GroupLayout.PREFERRED_SIZE)))
                                 .addGap(57, 57, 57)
                                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                     .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 80, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addComponent(jCheckBox1, javax.swing.GroupLayout.PREFERRED_SIZE, 101, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                                    .addComponent(positionCheck, javax.swing.GroupLayout.PREFERRED_SIZE, 101, javax.swing.GroupLayout.PREFERRED_SIZE)))
                             .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 495, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addGroup(layout.createSequentialGroup()
                                 .addComponent(jTextField1, javax.swing.GroupLayout.PREFERRED_SIZE, 404, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -162,13 +162,13 @@ public class Submarine extends javax.swing.JFrame implements DefenceObserver{
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                             .addComponent(jSpinner2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(jLabel2)
-                            .addComponent(jButton1)
-                            .addComponent(jButton2))
+                            .addComponent(subShoot)
+                            .addComponent(subMissile))
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(jButton5)
-                            .addComponent(jButton3)
-                            .addComponent(jCheckBox1, javax.swing.GroupLayout.PREFERRED_SIZE, 26, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addComponent(subTrident)
+                            .addComponent(subLaser)
+                            .addComponent(positionCheck, javax.swing.GroupLayout.PREFERRED_SIZE, 26, javax.swing.GroupLayout.PREFERRED_SIZE))
                         .addGap(18, 18, 18)
                         .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 139, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(18, 18, 18)
@@ -197,12 +197,7 @@ public class Submarine extends javax.swing.JFrame implements DefenceObserver{
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JLabel Area;
     private javax.swing.JLabel Lbl1;
-    private javax.swing.JButton jButton1;
-    private javax.swing.JButton jButton2;
-    private javax.swing.JButton jButton3;
     private javax.swing.JButton jButton4;
-    private javax.swing.JButton jButton5;
-    private javax.swing.JCheckBox jCheckBox1;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JScrollPane jScrollPane1;
@@ -212,6 +207,11 @@ public class Submarine extends javax.swing.JFrame implements DefenceObserver{
     private javax.swing.JTextArea jTextArea1;
     private javax.swing.JTextField jTextField1;
     private javax.swing.JTextField jTextField2;
+    private javax.swing.JCheckBox positionCheck;
+    private javax.swing.JButton subLaser;
+    private javax.swing.JButton subMissile;
+    private javax.swing.JButton subShoot;
+    private javax.swing.JButton subTrident;
     // End of variables declaration//GEN-END:variables
 
     @Override
@@ -225,6 +225,26 @@ public class Submarine extends javax.swing.JFrame implements DefenceObserver{
 
     @Override
     public void notifyObservers(int Level) {
+        subLaser.setEnabled(false);
+        subMissile.setEnabled(false);
+        subShoot.setEnabled(false);
+        subTrident.setEnabled(false);
         
+        if(!positionCheck.isSelected()){
+            return;
+        }
+        
+        if(Level>=20){
+            subShoot.setEnabled(true);
+        }
+        if(Level>=40){
+            subMissile.setEnabled(true);
+        }
+        if(Level>=60){
+            subLaser.setEnabled(true);
+        }
+        if(Level>=80){
+            subTrident.setEnabled(true);
+        }
     }
 }
