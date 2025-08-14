@@ -9,5 +9,6 @@ package defencesystem1;
  * @author DELL
  */
 public interface DefenceObserver {
-    
+    void updateAreaStatus(boolean isCleared);
+    void notifyObservers(int Level);
 }

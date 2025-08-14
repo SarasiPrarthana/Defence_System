@@ -8,7 +8,7 @@ package defencesystem1;
  *
  * @author DELL
  */
-public class Submarine extends javax.swing.JFrame {
+public class Submarine extends javax.swing.JFrame implements DefenceObserver{
 
     /**
      * Creates new form Submarine
@@ -26,7 +26,7 @@ public class Submarine extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        Lbl2 = new javax.swing.JLabel();
+        Area = new javax.swing.JLabel();
         Lbl1 = new javax.swing.JLabel();
         jButton1 = new javax.swing.JButton();
         jButton2 = new javax.swing.JButton();
@@ -46,8 +46,8 @@ public class Submarine extends javax.swing.JFrame {
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
-        Lbl2.setFont(new java.awt.Font("Segoe UI", 1, 20)); // NOI18N
-        Lbl2.setText("Area Is Not Cleared");
+        Area.setFont(new java.awt.Font("Segoe UI", 1, 20)); // NOI18N
+        Area.setText("Area Is Not Cleared");
 
         Lbl1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/defencesystem1/1.png"))); // NOI18N
 
@@ -136,7 +136,7 @@ public class Submarine extends javax.swing.JFrame {
                     .addGroup(layout.createSequentialGroup()
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addGroup(layout.createSequentialGroup()
-                                .addComponent(Lbl2, javax.swing.GroupLayout.PREFERRED_SIZE, 191, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addComponent(Area, javax.swing.GroupLayout.PREFERRED_SIZE, 191, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addGap(192, 192, 192)
                                 .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 80, javax.swing.GroupLayout.PREFERRED_SIZE))
                             .addGroup(layout.createSequentialGroup()
@@ -153,7 +153,7 @@ public class Submarine extends javax.swing.JFrame {
                 .addComponent(Lbl1, javax.swing.GroupLayout.PREFERRED_SIZE, 96, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(Lbl2, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(Area, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jLabel1)
                     .addComponent(jSpinner1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
@@ -195,8 +195,8 @@ public class Submarine extends javax.swing.JFrame {
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JLabel Area;
     private javax.swing.JLabel Lbl1;
-    private javax.swing.JLabel Lbl2;
     private javax.swing.JButton jButton1;
     private javax.swing.JButton jButton2;
     private javax.swing.JButton jButton3;
@@ -213,4 +213,18 @@ public class Submarine extends javax.swing.JFrame {
     private javax.swing.JTextField jTextField1;
     private javax.swing.JTextField jTextField2;
     // End of variables declaration//GEN-END:variables
+
+    @Override
+    public void updateAreaStatus(boolean isCleared) {
+        if(isCleared){
+            Area.setText("Area is Cleared");
+        }else{
+            Area.setText("Area is not Cleared");
+        }
+    }
+
+    @Override
+    public void notifyObservers(int Level) {
+        
+    }
 }

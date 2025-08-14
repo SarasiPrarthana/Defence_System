@@ -68,7 +68,7 @@
                   <Group type="102" alignment="0" attributes="0">
                       <Group type="103" groupAlignment="0" attributes="0">
                           <Group type="102" alignment="0" attributes="0">
-                              <Component id="Lbl2" min="-2" pref="191" max="-2" attributes="0"/>
+                              <Component id="Area" min="-2" pref="191" max="-2" attributes="0"/>
                               <EmptySpace min="-2" pref="192" max="-2" attributes="0"/>
                               <Component id="jLabel1" min="-2" pref="80" max="-2" attributes="0"/>
                           </Group>
@@ -93,7 +93,7 @@
               <Component id="Lbl1" min="-2" pref="96" max="-2" attributes="0"/>
               <EmptySpace type="separate" max="-2" attributes="0"/>
               <Group type="103" groupAlignment="3" attributes="0">
-                  <Component id="Lbl2" alignment="3" min="-2" pref="35" max="-2" attributes="0"/>
+                  <Component id="Area" alignment="3" min="-2" pref="35" max="-2" attributes="0"/>
                   <Component id="jLabel1" alignment="3" min="-2" max="-2" attributes="0"/>
                   <Component id="jSpinner1" alignment="3" min="-2" max="-2" attributes="0"/>
               </Group>
@@ -132,7 +132,7 @@
     </DimensionLayout>
   </Layout>
   <SubComponents>
-    <Component class="javax.swing.JLabel" name="Lbl2">
+    <Component class="javax.swing.JLabel" name="Area">
       <Properties>
         <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
           <Font name="Segoe UI" size="20" style="1"/>
